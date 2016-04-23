@@ -38,6 +38,7 @@ public class addTab implements MouseListener {
 		jp.add(lab3);
 
 		tab.pane.addTab("i", lab);
+		jp.setBackground(new Color(9, 9, 9, 0));//设置透明度jdk1.7
 		tab.pane.setTabComponentAt(tab.pane.indexOfComponent(lab), jp);// 实现这个功能的就这一条最重要的语句
 
 		lab3.addMouseListener(this);

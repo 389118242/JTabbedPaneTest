@@ -2,72 +2,67 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
- 
+public class tab extends JFrame implements ActionListener {
 
-public class tab extends JFrame implements ActionListener{
+	JMenuItem mi;
 
-    JMenuItem mi;
+	static JTabbedPane pane;
 
-static JTabbedPane pane;
+	public tab()
 
-public tab()
+	{
 
-{
+		super("选项卡窗格");
 
-super("选项卡窗格");
+		setVisible(true);
 
-setVisible(true);
+		setSize(800, 600);
 
-setSize(800,600);
+		setLocationRelativeTo(null);
 
-setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mi = new JMenuItem("增加");
 
- 
+		JMenu menu = new JMenu("增加");
 
-mi=new JMenuItem("增加");
+		menu.add(mi);
 
-JMenu menu=new JMenu("增加");
+		JMenuBar bar = new JMenuBar();
 
-menu.add(mi);
+		bar.add(menu);
 
-JMenuBar bar=new JMenuBar();
+		setJMenuBar(bar);
 
-bar.add(menu);
+		pane = new JTabbedPane();
 
-setJMenuBar(bar);
+		add(pane);
 
-pane = new JTabbedPane();
+		new addTab();
 
-add(pane);
+		mi.addActionListener(this);
 
-new addTab();
+	}
 
-mi.addActionListener(this);
+	public static void main(String[] args) throws Exception
 
-}
+	{
 
-public static void main(String[] args) throws Exception
+		new tab();
+	}
 
-{
+	@Override
 
-new tab();
-}
+	public void actionPerformed(ActionEvent e) {
 
-@Override
+		// TODO Auto-generated method stub
 
-public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mi) {
 
-    // TODO Auto-generated method stub
+			new addTab();
 
-    if(e.getSource()==mi){
+		}
 
-       new addTab();
-
-    }
+	}
 
 }
-
-}
-
